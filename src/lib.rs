@@ -24,9 +24,12 @@ mod destinations;
 pub use crate::destinations::Destination;
 mod toc;
 pub use crate::toc::Toc;
+#[cfg(not(feature = "nom_parser"))]
+#[cfg(feature = "pom_parser")]
+mod cmap_parser;
 pub mod content;
 mod creator;
-mod encodings;
+pub mod encodings;
 pub mod encryption;
 mod error;
 pub use error::XrefError;
